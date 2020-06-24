@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class PeeperMavenTestMain {
+public class PeeperMavenMainTest {
 	
 	@Test
     public void testMaven(){
