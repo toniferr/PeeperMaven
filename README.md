@@ -149,3 +149,15 @@ surefire:test
 Ejecuta las pruebas unitarias de una aplicación.
 
 
+## Maven JAR Plugin
+Este complemento proporciona la capacidad de construir jars. Si desea firmar frascos, utilice el complemento Maven Jarsigner.
+
+```
+jar:jar
+```
+Crea un archivo jar para los recursos inclusivos de tus clases de proyecto.
+
+```
+jar:test-jar
+```
+Crea un archivo jar para las clases de prueba de tu proyecto.

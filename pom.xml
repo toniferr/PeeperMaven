@@ -46,6 +46,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 	          </execution>
 	        </executions>
 	      </plugin>
+	      <plugin>
+		      <groupId>org.apache.maven.plugins</groupId>
+		      <artifactId>maven-jar-plugin</artifactId>
+		      <version>3.2.0</version>
+		      <configuration>
+		        <archive>
+		        	<manifest>
+		        		<addClasspath>true</addClasspath>
+		        		<mainClass>PeeperMavenMain</mainClass>
+		        	</manifest>
+		          <!-- <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>  -->
+		        </archive>
+		      </configuration>
+		   </plugin>
       </plugins>
 	  </build>
     
