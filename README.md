@@ -161,3 +161,72 @@ Crea un archivo jar para los recursos inclusivos de tus clases de proyecto.
 jar:test-jar
 ```
 Crea un archivo jar para las clases de prueba de tu proyecto.
+
+
+## Maven Deploy Plugin
+Maven Deploy Plugin tiene dos funciones básicas. En la mayoría de las compilaciones de proyectos, la fase de implementación del ciclo de vida de la compilación se implementa mediante la deploy:deploy mojo. Además, los artefactos que no se crean con Maven se pueden agregar a cualquier repositorio remoto mediante el deploy:deploy-file mojo.
+
+###El deploy:deploy Mojo
+En la mayoría de los casos, este mojo se invoca cuando llama a la fase de deploy del ciclo de vida de compilación predeterminado.
+
+Para habilitar este mojo para que funcione, debe incluir un POM de sección <distributionManagement /> válido , que como mínimo proporciona un <repository/> que define la ubicación del repositorio remoto para su artefacto. Para separar los artefactos de la instantánea de los artefactos de la versión, también puede especificar una ubicación <snapshotRepository /> . Finalmente, para implementar un sitio web del proyecto, también debe especificar una sección <site/> aquí. También es importante tener en cuenta que esta sección se puede heredar, lo que le permite especificar la ubicación de implementación una vez para un conjunto de proyectos relacionados.
+
+Si su repositorio está protegido, es posible que también desee configurar su archivo settings.xml para definir las entradas correspondientes <server/> que proporcionan información de autenticación. Las entradas del servidor se corresponden con las diferentes partes de la gestión de distribución utilizando sus elementos <id /> . Por ejemplo, su proyecto puede tener una sección de gestión de distribución similar a la siguiente:
+
+```
+[...]
+  <distributionManagement>
+    <repository>
+      <id>internal.repo</id>
+      <name>MyCo Internal Repository</name>
+      <url>Host to Company Repository</url>
+    </repository>
+  </distributionManagement>
+[...]
+```
+
+
+En este caso, puede especificar una definición de servidor en settings.xml para proporcionar información de autenticación para ambos repositorios a la vez. La sección de su servidor podría verse así:
+
+```
+[...]
+    <server>
+      <id>internal.repo</id>
+      <username>maven</username>
+      <password>foobar</password>
+    </server>
+[...]
+```
+
+Consulte el artículo sobre Cifrado de contraseña para obtener instrucciones sobre cómo evitar contraseñas de texto sin cifrar en settings.xml .
+
+Una vez que haya configurado la información de implementación del repositorio, la implementación correcta del artefacto de su proyecto solo requerirá la invocación de la fase de deploy de la compilación:
+
+```
+mvn deploy
+```
+
+###El deploy:deploy-file Mojo
+
+El despliegue: deploy-file mojo se usa principalmente para desplegar artefactos para los que Maven no construyó. El equipo de desarrollo del proyecto puede proporcionar o no un POM para el artefacto, y en algunos casos es posible que desee implementar el artefacto en un repositorio remoto interno. El archivo de implementación de mojo proporciona una funcionalidad que cubre todos estos casos de uso y ofrece una amplia gama de configuraciones para generar un POM sobre la marcha. Además, puede especificar qué diseño usa su repositorio. La declaración de uso completa del archivo de implementación mojo se puede describir como:
+
+```
+mvn deploy : deploy - file - Durl = file : // C: \ m2-repo \
+                       - DrepositoryId = algunos . carné de identidad \
+                       - Dfile = your - artefacto - 1.0 . tarro
+                       [- DpomFile = tu - pom . xml ] \
+                       [- DgroupId = org . alguna . grupo ] \
+                       [- DartifactId = your - artifact ] \
+                       [- Dversion = 1.0 ] \
+                       [- Dpackaging = jar ] \
+                       [- Dclassifier = prueba ] \
+                       [- DgeneratePom = verdadero ] \
+                       [- DgeneratePom . description = "Descripción de mi proyecto" ] \
+                       [- DrepositoryLayout = legacy ]
+```
+
+Si la siguiente información requerida no se especifica de alguna manera, el objetivo fallará:
+
+el archivo de artefactos para desplegar
+El grupo, artefacto, versión y empaquetado del archivo a desplegar. Estos pueden tomarse del archivo pomFile especificado y anularse o especificarse utilizando la línea de comando. Cuando el pomFile contiene una sección principal , el groupId del padre se puede considerar si el groupId no se especifica más para el proyecto actual o en la línea de comando.
+la información del repositorio: la url para implementar y la asignación de repositoryId a una sección del servidor en el archivo settings.xml. Si no especifica un ID de repositorio, Maven intentará extraer la información de autenticación utilizando el id 'repositorio remoto' .
