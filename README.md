@@ -94,3 +94,33 @@ compiler:testCompile
 ```
 Está vinculado a la fase de compilación de prueba y se utiliza para compilar los archivos fuente de prueba.
 
+
+## Maven Resources Plugin
+Maven Resources Plugin maneja la copia de los recursos del proyecto en el directorio target. Hay dos tipos diferentes de recursos: recursos principales y recursos de prueba. La diferencia es que los recursos principales son los recursos asociados al código fuente principal, mientras que los recursos de prueba están asociados al código fuente de prueba.
+
+Por lo tanto, esto permite la separación de recursos para el código fuente principal y sus pruebas unitarias.
+
+A partir de la versión 2.3, este complemento utiliza el componente compartido Maven Filtering para filtrar recursos.
+
+###Resumen de objetivos
+Maven Resources Plugin copia los archivos especificados por los elementos de recursos en un directorio de salida. Las tres variaciones a continuación solo difieren en cómo se especifican o se omiten los elementos de directorio de recursos y de salida. 
+
+El complemento de recursos tiene tres objetivos:
+
+```
+resources:resources
+```
+Copia los recursos para el código fuente principal en el directorio de salida principal.
+Este objetivo generalmente se ejecuta automáticamente, ya que está vinculado de forma predeterminada a la fase del ciclo de vida de los recursos del proceso. Siempre usa el elemento project.build.resources para especificar los recursos y, de manera predeterminada, usa project.build.outputDirectory para especificar el destino de la copia.
+
+```
+resources:testResources
+```
+Copia los recursos para el código fuente de prueba en el directorio de salida de prueba.
+Este objetivo generalmente se ejecuta automáticamente, ya que está vinculado de forma predeterminada a la fase del ciclo de vida proceso-prueba-recursos. Siempre usa el elemento project.build.testResources para especificar los recursos y, de forma predeterminada, usa project.build.testOutputDirectory para especificar el destino de la copia.
+
+```
+resources:copy-resources 
+```
+Copia recursos en un directorio de salida.
+Este objetivo requiere que configure los recursos que se copiarán y especifique outputDirectory.
