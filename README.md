@@ -124,3 +124,28 @@ resources:copy-resources
 ```
 Copia recursos en un directorio de salida.
 Este objetivo requiere que configure los recursos que se copiarán y especifique outputDirectory.
+
+
+## Maven Surefire Plugin
+Surefire Plugin se utiliza durante la testfase del ciclo de vida de la compilación para ejecutar las pruebas unitarias de una aplicación. 
+Genera informes en dos formatos de archivo diferentes:
+- Archivos de texto sin formato ( *.txt)
+- -Archivos XML ( *.xml)
+Por defecto, estos archivos se generan en ${basedir}/target/surefire-reports/TEST-*.xml.
+
+El esquema para los informes XML de Surefire está disponible en el Esquema de informes XML de Surefire .
+
+Los informes XML generados por los complementos heredados (versiones hasta 2.22.0) deben ser validados por el esquema de informe XML Legacy Surefire .
+
+Sin embargo, dos versiones de complementos (2.22.1 y 3.0.0-M1) generan informes XML 3.0 y aún se refieren al esquema heredado. 
+Los proyectos que esperan informes XML validados por el esquema XSD, herramientas, por ejemplo, xUnit, no deben usar las versiones 2.22.1 y 3.0.0-M1 del complemento Surefire.
+
+###Resumen de objetivos
+El complemento Surefire tiene un solo objetivo:
+
+```
+surefire:test
+```
+Ejecuta las pruebas unitarias de una aplicación.
+
+
