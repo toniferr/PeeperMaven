@@ -1,22 +1,22 @@
 # PeeperMaven
 
 ## Maven Wrapper
-Maven Wrapper es una manera f·cil de garantizar que un usuario de su compilaciÛn Maven tenga todo lo necesario para ejecutar su compilaciÛn Maven.
+Maven Wrapper es una manera f√°cil de garantizar que un usuario de su compilaci√≥n Maven tenga todo lo necesario para ejecutar su compilaci√≥n Maven.
 
-øPor quÈ podrÌa ser esto necesario? Hasta la fecha, Maven ha sido muy estable para los usuarios, est· disponible en la mayorÌa de los sistemas o es f·cil de adquirir: pero con muchos de los cambios recientes en Maven, ser· m·s f·cil para los usuarios tener una configuraciÛn de compilaciÛn totalmente encapsulada proporcionada por el proyecto. Con el Maven Wrapper esto es muy f·cil de hacer y es una gran idea prestada de Gradle.
+¬øPor qu√© podr√≠a ser esto necesario? Hasta la fecha, Maven ha sido muy estable para los usuarios, est√° disponible en la mayor√≠a de los sistemas o es f√°cil de adquirir: pero con muchos de los cambios recientes en Maven, ser√° m√°s f√°cil para los usuarios tener una configuraci√≥n de compilaci√≥n totalmente encapsulada proporcionada por el proyecto. Con el Maven Wrapper esto es muy f√°cil de hacer y es una gran idea prestada de Gradle.
 
-La forma m·s f·cil de configurar Maven Wrapper para el proyecto es usar el complemento Takari Maven con su objetivo proporcionado. 
+La forma m√°s f√°cil de configurar Maven Wrapper para el proyecto es usar el complemento Takari Maven con su objetivo proporcionado. 
 
 ```
 mvn -N io.takari:maven:wrapper -Dmaven=3.6.0
 ```
 
-Normalmente, le indica a los usuarios que instalen una versiÛn especÌfica de Apache Maven, la coloque en la RUTA y luego ejecute el mvncomando de la siguiente manera:
+Normalmente, le indica a los usuarios que instalen una versi√≥n espec√≠fica de Apache Maven, la coloque en la RUTA y luego ejecute el mvncomando de la siguiente manera:
 
 ```
 mvn clean install
 ```
-Pero ahora, con una configuraciÛn de Maven Wrapper, puede indicar a los usuarios que ejecuten scripts de envoltura:
+Pero ahora, con una configuraci√≥n de Maven Wrapper, puede indicar a los usuarios que ejecuten scripts de envoltura:
 
 ```
 ./mvnw clean install
@@ -27,32 +27,32 @@ o en Windows
 mvnw.cmd clean install
 ```
 
-Se ejecutar· una compilaciÛn normal de Maven con el ˙nico cambio importante que si el usuario no tiene la versiÛn necesaria de Maven especificada .mvn/wrapper/maven-wrapper.properties, se descargar· primero para el usuario, se instalar· y luego se usar·.
+Se ejecutar√° una compilaci√≥n normal de Maven con el √∫nico cambio importante que si el usuario no tiene la versi√≥n necesaria de Maven especificada .mvn/wrapper/maven-wrapper.properties, se descargar√° primero para el usuario, se instalar√° y luego se usar√°.
 
-Los usos posteriores de mvn/ mvnw.cmd usan la versiÛn especÌfica descargada previamente seg˙n sea necesario.
+Los usos posteriores de mvn/ mvnw.cmd usan la versi√≥n espec√≠fica descargada previamente seg√∫n sea necesario.
 
 Disponible en [github](https://github.com/takari/maven-wrapper)
 
 ## Maven Clean Plugin
-Maven Clean Plugin, como su nombre lo indica, intenta limpiar los archivos y directorios generados por Maven durante su construcciÛn. Si bien hay complementos que generan archivos adicionales, Clean Plugin supone que estos archivos se generan dentro del directorio target.
+Maven Clean Plugin, como su nombre lo indica, intenta limpiar los archivos y directorios generados por Maven durante su construcci√≥n. Si bien hay complementos que generan archivos adicionales, Clean Plugin supone que estos archivos se generan dentro del directorio target.
 
 
-### Clean usando la lÌnea de comando
-Se puede llamar a Clean Plugin para que se ejecute en la lÌnea de comandos sin ninguna configuraciÛn adicional. Al igual que los otros complementos, para ejecutar Clean, usa:
+### Clean usando la l√≠nea de comando
+Se puede llamar a Clean Plugin para que se ejecute en la l√≠nea de comandos sin ninguna configuraci√≥n adicional. Al igual que los otros complementos, para ejecutar Clean, usa:
 
 ```
 mvn clean:clean
 ```
 donde la primera limpieza se refiere al alias del complemento y la segunda limpieza se refiere al objetivo del complemento.
 
-Sin embargo, Clean Plugin es un complemento especial y est· vinculado a su propia fase de ciclo de vida especial llamada clean. Por lo tanto, por simplicidad, tambiÈn se puede ejecutar usando:
+Sin embargo, Clean Plugin es un complemento especial y est√° vinculado a su propia fase de ciclo de vida especial llamada clean. Por lo tanto, por simplicidad, tambi√©n se puede ejecutar usando:
 
 ```
 mvn clean
 ```
 
-### Ejecutar Clean Plugin autom·ticamente durante una compilaciÛn
-Si por alguna razÛn, agregar clean a la lÌnea de comandos no es una opciÛn, Clean Plugin se puede colocar en el pom.xml de un proyecto para que se ejecute cada vez que se construye el proyecto. A continuaciÛn se muestra un ejemplo de pom.xml para ejecutar Clean Plugin en la fase de inicializaciÛn cada vez que se construye el proyecto:
+### Ejecutar Clean Plugin autom√°ticamente durante una compilaci√≥n
+Si por alguna raz√≥n, agregar clean a la l√≠nea de comandos no es una opci√≥n, Clean Plugin se puede colocar en el pom.xml de un proyecto para que se ejecute cada vez que se construye el proyecto. A continuaci√≥n se muestra un ejemplo de pom.xml para ejecutar Clean Plugin en la fase de inicializaci√≥n cada vez que se construye el proyecto:
 
 ```
   <build>
@@ -75,69 +75,69 @@ Si por alguna razÛn, agregar clean a la lÌnea de comandos no es una opciÛn, Clea
 ```
 
 ## Maven Compiler Plugin
-El complemento del compilador se utiliza para compilar las fuentes de su proyecto. Desde 3.0, el compilador predeterminado es javax.tools.JavaCompiler (si est· utilizando java 1.6) y se utiliza para compilar fuentes Java. Si desea forzar el complemento utilizando javac , debe configurar la opciÛn del complemento forceJavacCompilerUse .
+El complemento del compilador se utiliza para compilar las fuentes de su proyecto. Desde 3.0, el compilador predeterminado es javax.tools.JavaCompiler (si est√° utilizando java 1.6) y se utiliza para compilar fuentes Java. Si desea forzar el complemento utilizando javac , debe configurar la opci√≥n del complemento forceJavacCompilerUse .
 
-TambiÈn tenga en cuenta que actualmente la configuraciÛn de source predeterminada es 1.6 y la configuraciÛn de target predeterminada es 1.6, independientemente del JDK con el que ejecuta Maven.
+Tambi√©n tenga en cuenta que actualmente la configuraci√≥n de source predeterminada es 1.6 y la configuraci√≥n de target predeterminada es 1.6, independientemente del JDK con el que ejecuta Maven.
 
 Se pueden usar otros compiladores que no sean javac y el trabajo ya ha comenzado en AspectJ, .NET y C #.
 
 ###Resumen de objetivos
-El complemento del compilador tiene dos objetivos. Ambos ya est·n vinculados a sus fases adecuadas dentro del ciclo de vida de Maven y, por lo tanto, se ejecutan autom·ticamente durante sus fases respectivas.
+El complemento del compilador tiene dos objetivos. Ambos ya est√°n vinculados a sus fases adecuadas dentro del ciclo de vida de Maven y, por lo tanto, se ejecutan autom√°ticamente durante sus fases respectivas.
 
 ```
 compiler:compile
 ```
-Est· vinculado a la fase de compilaciÛn y se utiliza para compilar los archivos fuente principales.
+Est√° vinculado a la fase de compilaci√≥n y se utiliza para compilar los archivos fuente principales.
 
 ```
 compiler:testCompile
 ```
-Est· vinculado a la fase de compilaciÛn de prueba y se utiliza para compilar los archivos fuente de prueba.
+Est√° vinculado a la fase de compilaci√≥n de prueba y se utiliza para compilar los archivos fuente de prueba.
 
 
 ## Maven Resources Plugin
-Maven Resources Plugin maneja la copia de los recursos del proyecto en el directorio target. Hay dos tipos diferentes de recursos: recursos principales y recursos de prueba. La diferencia es que los recursos principales son los recursos asociados al cÛdigo fuente principal, mientras que los recursos de prueba est·n asociados al cÛdigo fuente de prueba.
+Maven Resources Plugin maneja la copia de los recursos del proyecto en el directorio target. Hay dos tipos diferentes de recursos: recursos principales y recursos de prueba. La diferencia es que los recursos principales son los recursos asociados al c√≥digo fuente principal, mientras que los recursos de prueba est√°n asociados al c√≥digo fuente de prueba.
 
-Por lo tanto, esto permite la separaciÛn de recursos para el cÛdigo fuente principal y sus pruebas unitarias.
+Por lo tanto, esto permite la separaci√≥n de recursos para el c√≥digo fuente principal y sus pruebas unitarias.
 
-A partir de la versiÛn 2.3, este complemento utiliza el componente compartido Maven Filtering para filtrar recursos.
+A partir de la versi√≥n 2.3, este complemento utiliza el componente compartido Maven Filtering para filtrar recursos.
 
 ###Resumen de objetivos
-Maven Resources Plugin copia los archivos especificados por los elementos de recursos en un directorio de salida. Las tres variaciones a continuaciÛn solo difieren en cÛmo se especifican o se omiten los elementos de directorio de recursos y de salida. 
+Maven Resources Plugin copia los archivos especificados por los elementos de recursos en un directorio de salida. Las tres variaciones a continuaci√≥n solo difieren en c√≥mo se especifican o se omiten los elementos de directorio de recursos y de salida. 
 
 El complemento de recursos tiene tres objetivos:
 
 ```
 resources:resources
 ```
-Copia los recursos para el cÛdigo fuente principal en el directorio de salida principal.
-Este objetivo generalmente se ejecuta autom·ticamente, ya que est· vinculado de forma predeterminada a la fase del ciclo de vida de los recursos del proceso. Siempre usa el elemento project.build.resources para especificar los recursos y, de manera predeterminada, usa project.build.outputDirectory para especificar el destino de la copia.
+Copia los recursos para el c√≥digo fuente principal en el directorio de salida principal.
+Este objetivo generalmente se ejecuta autom√°ticamente, ya que est√° vinculado de forma predeterminada a la fase del ciclo de vida de los recursos del proceso. Siempre usa el elemento project.build.resources para especificar los recursos y, de manera predeterminada, usa project.build.outputDirectory para especificar el destino de la copia.
 
 ```
 resources:testResources
 ```
-Copia los recursos para el cÛdigo fuente de prueba en el directorio de salida de prueba.
-Este objetivo generalmente se ejecuta autom·ticamente, ya que est· vinculado de forma predeterminada a la fase del ciclo de vida proceso-prueba-recursos. Siempre usa el elemento project.build.testResources para especificar los recursos y, de forma predeterminada, usa project.build.testOutputDirectory para especificar el destino de la copia.
+Copia los recursos para el c√≥digo fuente de prueba en el directorio de salida de prueba.
+Este objetivo generalmente se ejecuta autom√°ticamente, ya que est√° vinculado de forma predeterminada a la fase del ciclo de vida proceso-prueba-recursos. Siempre usa el elemento project.build.testResources para especificar los recursos y, de forma predeterminada, usa project.build.testOutputDirectory para especificar el destino de la copia.
 
 ```
 resources:copy-resources 
 ```
 Copia recursos en un directorio de salida.
-Este objetivo requiere que configure los recursos que se copiar·n y especifique outputDirectory.
+Este objetivo requiere que configure los recursos que se copiar√°n y especifique outputDirectory.
 
 
 ## Maven Surefire Plugin
-Surefire Plugin se utiliza durante la testfase del ciclo de vida de la compilaciÛn para ejecutar las pruebas unitarias de una aplicaciÛn. 
+Surefire Plugin se utiliza durante la testfase del ciclo de vida de la compilaci√≥n para ejecutar las pruebas unitarias de una aplicaci√≥n. 
 Genera informes en dos formatos de archivo diferentes:
 - Archivos de texto sin formato ( *.txt)
 - -Archivos XML ( *.xml)
 Por defecto, estos archivos se generan en ${basedir}/target/surefire-reports/TEST-*.xml.
 
-El esquema para los informes XML de Surefire est· disponible en el Esquema de informes XML de Surefire .
+El esquema para los informes XML de Surefire est√° disponible en el Esquema de informes XML de Surefire .
 
 Los informes XML generados por los complementos heredados (versiones hasta 2.22.0) deben ser validados por el esquema de informe XML Legacy Surefire .
 
-Sin embargo, dos versiones de complementos (2.22.1 y 3.0.0-M1) generan informes XML 3.0 y a˙n se refieren al esquema heredado. 
+Sin embargo, dos versiones de complementos (2.22.1 y 3.0.0-M1) generan informes XML 3.0 y a√∫n se refieren al esquema heredado. 
 Los proyectos que esperan informes XML validados por el esquema XSD, herramientas, por ejemplo, xUnit, no deben usar las versiones 2.22.1 y 3.0.0-M1 del complemento Surefire.
 
 ###Resumen de objetivos
@@ -146,7 +146,7 @@ El complemento Surefire tiene un solo objetivo:
 ```
 surefire:test
 ```
-Ejecuta las pruebas unitarias de una aplicaciÛn.
+Ejecuta las pruebas unitarias de una aplicaci√≥n.
 
 
 ## Maven JAR Plugin
@@ -164,14 +164,14 @@ Crea un archivo jar para las clases de prueba de tu proyecto.
 
 
 ## Maven Deploy Plugin
-Maven Deploy Plugin tiene dos funciones b·sicas. En la mayorÌa de las compilaciones de proyectos, la fase de implementaciÛn del ciclo de vida de la compilaciÛn se implementa mediante la deploy:deploy mojo. Adem·s, los artefactos que no se crean con Maven se pueden agregar a cualquier repositorio remoto mediante el deploy:deploy-file mojo.
+Maven Deploy Plugin tiene dos funciones b√°sicas. En la mayor√≠a de las compilaciones de proyectos, la fase de implementaci√≥n del ciclo de vida de la compilaci√≥n se implementa mediante la deploy:deploy mojo. Adem√°s, los artefactos que no se crean con Maven se pueden agregar a cualquier repositorio remoto mediante el deploy:deploy-file mojo.
 
 ###El deploy:deploy Mojo
-En la mayorÌa de los casos, este mojo se invoca cuando llama a la fase de deploy del ciclo de vida de compilaciÛn predeterminado.
+En la mayor√≠a de los casos, este mojo se invoca cuando llama a la fase de deploy del ciclo de vida de compilaci√≥n predeterminado.
 
-Para habilitar este mojo para que funcione, debe incluir un POM de secciÛn <distributionManagement /> v·lido , que como mÌnimo proporciona un <repository/> que define la ubicaciÛn del repositorio remoto para su artefacto. Para separar los artefactos de la instant·nea de los artefactos de la versiÛn, tambiÈn puede especificar una ubicaciÛn <snapshotRepository /> . Finalmente, para implementar un sitio web del proyecto, tambiÈn debe especificar una secciÛn <site/> aquÌ. TambiÈn es importante tener en cuenta que esta secciÛn se puede heredar, lo que le permite especificar la ubicaciÛn de implementaciÛn una vez para un conjunto de proyectos relacionados.
+Para habilitar este mojo para que funcione, debe incluir un POM de secci√≥n <distributionManagement /> v√°lido , que como m√≠nimo proporciona un <repository/> que define la ubicaci√≥n del repositorio remoto para su artefacto. Para separar los artefactos de la instant√°nea de los artefactos de la versi√≥n, tambi√©n puede especificar una ubicaci√≥n <snapshotRepository /> . Finalmente, para implementar un sitio web del proyecto, tambi√©n debe especificar una secci√≥n <site/> aqu√≠. Tambi√©n es importante tener en cuenta que esta secci√≥n se puede heredar, lo que le permite especificar la ubicaci√≥n de implementaci√≥n una vez para un conjunto de proyectos relacionados.
 
-Si su repositorio est· protegido, es posible que tambiÈn desee configurar su archivo settings.xml para definir las entradas correspondientes <server/> que proporcionan informaciÛn de autenticaciÛn. Las entradas del servidor se corresponden con las diferentes partes de la gestiÛn de distribuciÛn utilizando sus elementos <id /> . Por ejemplo, su proyecto puede tener una secciÛn de gestiÛn de distribuciÛn similar a la siguiente:
+Si su repositorio est√° protegido, es posible que tambi√©n desee configurar su archivo settings.xml para definir las entradas correspondientes <server/> que proporcionan informaci√≥n de autenticaci√≥n. Las entradas del servidor se corresponden con las diferentes partes de la gesti√≥n de distribuci√≥n utilizando sus elementos <id /> . Por ejemplo, su proyecto puede tener una secci√≥n de gesti√≥n de distribuci√≥n similar a la siguiente:
 
 ```
 [...]
@@ -186,7 +186,7 @@ Si su repositorio est· protegido, es posible que tambiÈn desee configurar su arc
 ```
 
 
-En este caso, puede especificar una definiciÛn de servidor en settings.xml para proporcionar informaciÛn de autenticaciÛn para ambos repositorios a la vez. La secciÛn de su servidor podrÌa verse asÌ:
+En este caso, puede especificar una definici√≥n de servidor en settings.xml para proporcionar informaci√≥n de autenticaci√≥n para ambos repositorios a la vez. La secci√≥n de su servidor podr√≠a verse as√≠:
 
 ```
 [...]
@@ -198,9 +198,9 @@ En este caso, puede especificar una definiciÛn de servidor en settings.xml para 
 [...]
 ```
 
-Consulte el artÌculo sobre Cifrado de contraseÒa para obtener instrucciones sobre cÛmo evitar contraseÒas de texto sin cifrar en settings.xml .
+Consulte el art√≠culo sobre Cifrado de contrase√±a para obtener instrucciones sobre c√≥mo evitar contrase√±as de texto sin cifrar en settings.xml .
 
-Una vez que haya configurado la informaciÛn de implementaciÛn del repositorio, la implementaciÛn correcta del artefacto de su proyecto solo requerir· la invocaciÛn de la fase de deploy de la compilaciÛn:
+Una vez que haya configurado la informaci√≥n de implementaci√≥n del repositorio, la implementaci√≥n correcta del artefacto de su proyecto solo requerir√° la invocaci√≥n de la fase de deploy de la compilaci√≥n:
 
 ```
 mvn deploy
@@ -208,11 +208,11 @@ mvn deploy
 
 ###El deploy:deploy-file Mojo
 
-El despliegue: deploy-file mojo se usa principalmente para desplegar artefactos para los que Maven no construyÛ. El equipo de desarrollo del proyecto puede proporcionar o no un POM para el artefacto, y en algunos casos es posible que desee implementar el artefacto en un repositorio remoto interno. El archivo de implementaciÛn de mojo proporciona una funcionalidad que cubre todos estos casos de uso y ofrece una amplia gama de configuraciones para generar un POM sobre la marcha. Adem·s, puede especificar quÈ diseÒo usa su repositorio. La declaraciÛn de uso completa del archivo de implementaciÛn mojo se puede describir como:
+El despliegue: deploy-file mojo se usa principalmente para desplegar artefactos para los que Maven no construy√≥. El equipo de desarrollo del proyecto puede proporcionar o no un POM para el artefacto, y en algunos casos es posible que desee implementar el artefacto en un repositorio remoto interno. El archivo de implementaci√≥n de mojo proporciona una funcionalidad que cubre todos estos casos de uso y ofrece una amplia gama de configuraciones para generar un POM sobre la marcha. Adem√°s, puede especificar qu√© dise√±o usa su repositorio. La declaraci√≥n de uso completa del archivo de implementaci√≥n mojo se puede describir como:
 
 ```
 mvn deploy : deploy - file - Durl = file : // C: \ m2-repo \
-                       - DrepositoryId = algunos . carnÈ de identidad \
+                       - DrepositoryId = algunos . carn√© de identidad \
                        - Dfile = your - artefacto - 1.0 . tarro
                        [- DpomFile = tu - pom . xml ] \
                        [- DgroupId = org . alguna . grupo ] \
@@ -221,12 +221,103 @@ mvn deploy : deploy - file - Durl = file : // C: \ m2-repo \
                        [- Dpackaging = jar ] \
                        [- Dclassifier = prueba ] \
                        [- DgeneratePom = verdadero ] \
-                       [- DgeneratePom . description = "DescripciÛn de mi proyecto" ] \
+                       [- DgeneratePom . description = "Descripci√≥n de mi proyecto" ] \
                        [- DrepositoryLayout = legacy ]
 ```
 
-Si la siguiente informaciÛn requerida no se especifica de alguna manera, el objetivo fallar·:
+Si la siguiente informaci√≥n requerida no se especifica de alguna manera, el objetivo fallar√°:
 
 el archivo de artefactos para desplegar
-El grupo, artefacto, versiÛn y empaquetado del archivo a desplegar. Estos pueden tomarse del archivo pomFile especificado y anularse o especificarse utilizando la lÌnea de comando. Cuando el pomFile contiene una secciÛn principal , el groupId del padre se puede considerar si el groupId no se especifica m·s para el proyecto actual o en la lÌnea de comando.
-la informaciÛn del repositorio: la url para implementar y la asignaciÛn de repositoryId a una secciÛn del servidor en el archivo settings.xml. Si no especifica un ID de repositorio, Maven intentar· extraer la informaciÛn de autenticaciÛn utilizando el id 'repositorio remoto' .
+El grupo, artefacto, versi√≥n y empaquetado del archivo a desplegar. Estos pueden tomarse del archivo pomFile especificado y anularse o especificarse utilizando la l√≠nea de comando. Cuando el pomFile contiene una secci√≥n principal , el groupId del padre se puede considerar si el groupId no se especifica m√°s para el proyecto actual o en la l√≠nea de comando.
+la informaci√≥n del repositorio: la url para implementar y la asignaci√≥n de repositoryId a una secci√≥n del servidor en el archivo settings.xml. Si no especifica un ID de repositorio, Maven intentar√° extraer la informaci√≥n de autenticaci√≥n utilizando el id 'repositorio remoto'.
+
+## Maven Site Plugin
+
+Para poner contenido adicional (por ejemplo, documentaci√≥n, recursos, etc.) en su sitio. Si desea cambiar los men√∫s, migas de pan, enlaces o logotipos en sus p√°ginas, debe agregar y configurar un descriptor del sitio. Tambi√©n puede dejar que Maven genere algunos informes, basados ‚Äã‚Äãen el contenido de su POM.
+
+###Generando un sitio
+Para generar el sitio y los informes del proyecto, ejecute:
+
+```
+mvn site
+```
+
+Por defecto, el sitio resultante estar√° en el directorio target/site/.
+
+Nota: Si tiene un proyecto de varios m√≥dulos, los enlaces entre los m√≥dulos padre e hijo no funcionar√°n cuando use mvn site o mvn site:site. Si desea usar esos enlaces, debe usar mvn site:stage en su lugar.
+
+Nota: Por razones de rendimiento, Maven compara las marcas de tiempo de los archivos generados y los documentos de origen correspondientes, y solo regenera los documentos que han cambiado desde la √∫ltima compilaci√≥n. Sin embargo, esto solo se aplica a los documentos fuente de documentaci√≥n (apt, xdoc, ...). Si cambia algo en su site.xml , cualquier secci√≥n relevante en su pom, o cualquier propiedad relevante o archivo de recursos, debe generar el sitio desde cero para asegurarse de que todas las referencias y enlaces sean correctos.
+
+
+###Implementar un sitio
+El elemento <id> identifica el repositorio, para que pueda adjuntarle credenciales en su archivo settings.xml utilizando el elemento <servers> como lo har√≠a para cualquier otro repositorio.
+
+El <url> proporciona la ubicaci√≥n para desplegar. En el ejemplo anterior, copiamos al host www.mycompany.com usando la ruta /www/docs/project/ sobre el protocolo scp. Puede leer m√°s sobre qu√© protocolos son compatibles en esta p√°gina . Si los subproyectos heredan la URL del sitio de un POM principal, agregar√°n autom√°ticamente su <artifactId> para formar su ubicaci√≥n de implementaci√≥n efectiva.
+
+Ahora puede ejecutar site:deploy desde el directorio de su proyecto.
+
+Nota: Se debe generar un sitio antes de ejecutar site:deploy.
+
+```
+<project>
+  ...
+  <distributionManagement>
+    <site>
+      <id>www.yourcompany.com</id>
+      <url>scp://www.yourcompany.com/www/docs/project/</url>
+    </site>
+  </distributionManagement>
+  ...
+</project>
+```
+
+```
+mvn site:deploy
+```
+Si desea generar el sitio e implementarlo de una vez, puede utilizar la fase site-deploy del ciclo de vida del sitio. Para hacer esto, simplemente ejecute:
+
+```
+mvn site-deploy
+```
+
+###Puesta en escena de un sitio
+Nota: Este objetivo est√° disponible en la versi√≥n 2.0-beta-5 o posterior del complemento del sitio.
+
+Para revisar / probar el sitio web generado antes de una implementaci√≥n oficial, puede organizar el sitio en un directorio espec√≠fico. Utilizar√° el elemento <distributionManagement> o la jerarqu√≠a del proyecto para vincular el proyecto y sus m√≥dulos.
+
+Simplemente ejecute el site:stage de su proyecto
+
+```
+mvn site:stage
+```
+Nota: desde la versi√≥n 2.3, se debe generar un sitio antes de ejecutar site:stage.
+
+De manera predeterminada, el sitio se organizar√° en un directorio de target/staging/. Se puede elegir una ubicaci√≥n de preparaci√≥n diferente con el par√°metro stagingDirectory como se muestra a continuaci√≥n:
+
+```
+mvn site:stage -DstagingDirectory=C:\fullsite
+```
+
+Nota: stagingDirectory no puede ser din√°mico, es decir, stagingDirectory = $ {basedir}\fullsite
+
+Para organizar un sitio y desplegarlo, simplemente ejecute site:stage-deploy de su proyecto con los par√°metros requeridos. El site:stage-deploy utilizar√° el valor de distributionManagement.site.id como ID predeterminado para buscar la secci√≥n del servidor en settings.xml ; a menos que esto no est√© definido, el String stagingSite se usar√° como id. Por lo tanto, si necesita agregar su nombre de usuario o contrase√±a por separado para la implementaci√≥n por etapas en settings.xml , debe usar <id> stagingSite </id> para esa secci√≥n <server>.
+
+De manera predeterminada, el sitio se implementar√° en etapas en $distributionManagement.site.url/staging/. Se puede elegir una ubicaci√≥n diferente con el par√°metro stagingSiteURL como se muestra a continuaci√≥n:
+
+```
+mvn site:stage-deploy -DstagingSiteURL=scp://www.mycompany.com/www/project/
+```
+
+Nota: desde la versi√≥n 2.3, se debe generar un sitio antes de ejecutar el site:stage-deploy .
+
+Nota: Debido a un error en Wagon, la contrase√±a no siempre se recupera cuando ejecuta site:deploy. El error se ha solucionado, pero la versi√≥n de Wagon que usa el complemento del sitio est√° determinada por la versi√≥n de Maven que use. Las versiones 2.0.x actuales de Maven usan una versi√≥n donde este error todav√≠a est√° presente.
+
+###Ejecutando un sitio
+El complemento del sitio tambi√©n se puede utilizar para iniciar el sitio en Jetty. Para hacer esto, ejecute:
+
+```
+mvn site:run
+```
+El servidor, por defecto, se iniciar√° en http://localhost:8080/.
+
+Nota: La ejecuci√≥n de un sitio solo funciona para sitios de un solo m√≥dulo. Para obtener una vista previa de un sitio de varios m√≥dulos, se debe usar el site:stage.
