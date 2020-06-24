@@ -42,3 +42,23 @@ Si por alguna razón, agregar clean a la línea de comandos no es una opción, Clea
   </build>
 ```
 
+## Maven Compiler Plugin
+El complemento del compilador se utiliza para compilar las fuentes de su proyecto. Desde 3.0, el compilador predeterminado es javax.tools.JavaCompiler (si está utilizando java 1.6) y se utiliza para compilar fuentes Java. Si desea forzar el complemento utilizando javac , debe configurar la opción del complemento forceJavacCompilerUse .
+
+También tenga en cuenta que actualmente la configuración de source predeterminada es 1.6 y la configuración de target predeterminada es 1.6, independientemente del JDK con el que ejecuta Maven.
+
+Se pueden usar otros compiladores que no sean javac y el trabajo ya ha comenzado en AspectJ, .NET y C #.
+
+###Resumen de objetivos
+El complemento del compilador tiene dos objetivos. Ambos ya están vinculados a sus fases adecuadas dentro del ciclo de vida de Maven y, por lo tanto, se ejecutan automáticamente durante sus fases respectivas.
+
+```
+compiler:compile
+```
+Está vinculado a la fase de compilación y se utiliza para compilar los archivos fuente principales.
+
+```
+compiler:testCompile
+```
+Está vinculado a la fase de compilación de prueba y se utiliza para compilar los archivos fuente de prueba.
+
