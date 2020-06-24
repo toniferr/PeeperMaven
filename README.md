@@ -1,5 +1,36 @@
 # PeeperMaven
 
+## Maven Wrapper
+Maven Wrapper es una manera fácil de garantizar que un usuario de su compilación Maven tenga todo lo necesario para ejecutar su compilación Maven.
+
+¿Por qué podría ser esto necesario? Hasta la fecha, Maven ha sido muy estable para los usuarios, está disponible en la mayoría de los sistemas o es fácil de adquirir: pero con muchos de los cambios recientes en Maven, será más fácil para los usuarios tener una configuración de compilación totalmente encapsulada proporcionada por el proyecto. Con el Maven Wrapper esto es muy fácil de hacer y es una gran idea prestada de Gradle.
+
+La forma más fácil de configurar Maven Wrapper para el proyecto es usar el complemento Takari Maven con su objetivo proporcionado. 
+
+```
+mvn -N io.takari:maven:wrapper -Dmaven=3.6.0
+```
+
+Normalmente, le indica a los usuarios que instalen una versión específica de Apache Maven, la coloque en la RUTA y luego ejecute el mvncomando de la siguiente manera:
+
+```
+mvn clean install
+```
+Pero ahora, con una configuración de Maven Wrapper, puede indicar a los usuarios que ejecuten scripts de envoltura:
+
+```
+./mvnw clean install
+```
+o en Windows
+
+```
+mvnw.cmd clean install
+```
+
+Se ejecutará una compilación normal de Maven con el único cambio importante que si el usuario no tiene la versión necesaria de Maven especificada .mvn/wrapper/maven-wrapper.properties, se descargará primero para el usuario, se instalará y luego se usará.
+
+Los usos posteriores de mvn/ mvnw.cmd usan la versión específica descargada previamente según sea necesario.
+
 
 ## Maven Clean Plugin
 Maven Clean Plugin, como su nombre lo indica, intenta limpiar los archivos y directorios generados por Maven durante su construcción. Si bien hay complementos que generan archivos adicionales, Clean Plugin supone que estos archivos se generan dentro del directorio target.
