@@ -1,4 +1,4 @@
-package com.toni
+
 
 class GroovyHello {
 

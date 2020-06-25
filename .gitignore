@@ -144,6 +144,8 @@ Desktop.ini
 
 ######################
 # target de modulos
+kotlin/target
+scala/target
 groovy/target
 mapStruct/target
 lombok/target
