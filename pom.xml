@@ -1,38 +1,30 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
-     <modelVersion>4.0.0</modelVersion>
-     <groupId>com.toni</groupId>
-     <artifactId>PeeperMaven</artifactId>
-     <version>0.0.1-SNAPSHOT</version>
-  
-      <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-      </properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-      <dependencies>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
-		<dependency>
-		    <groupId>junit</groupId>
-		    <artifactId>junit</artifactId>
-		    <version>4.13</version>
-		    <scope>test</scope>
-		</dependency>
-        
-      </dependencies>   
-      
-      <build>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.toni</groupId>
+	<artifactId>PeeperMaven</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>11</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<jaxb.version>2.3.0</jaxb.version>
+	</properties>
+
+	<modules>
+		<module>jaxb</module>
+	</modules>
+
+	<build>
 	    <plugins>
+	    
 	      <plugin>
 	        <artifactId>maven-clean-plugin</artifactId>
 	        <version>3.1.0</version>
@@ -45,27 +37,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 	            </goals>
 	          </execution>
 	        </executions>
-	      </plugin>
-	      <plugin>
-		      <groupId>org.apache.maven.plugins</groupId>
-		      <artifactId>maven-jar-plugin</artifactId>
-		      <version>3.2.0</version>
-		      <configuration>
-		        <archive>
-		        	<manifest>
-		        		<addClasspath>true</addClasspath>
-		        		<mainClass>PeeperMavenMain</mainClass>
-		        	</manifest>
-		          <!-- <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>  -->
-		        </archive>
-		      </configuration>
-		   </plugin>		   
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.7.1</version>
-            </plugin>
-      </plugins>
+	      </plugin>      
+	      	   
+          <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-site-plugin</artifactId>
+               <version>3.7.1</version>
+           </plugin>
+            
+	    </plugins>
 	  </build>
-    
 </project>

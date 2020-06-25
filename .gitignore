@@ -141,3 +141,7 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+
+######################
+# Modulo JAXB
+jaxb/target
