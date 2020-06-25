@@ -144,6 +144,7 @@ Desktop.ini
 
 ######################
 # target de modulos
+groovy/target
 mapStruct/target
 lombok/target
 jaxb/target
