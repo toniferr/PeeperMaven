@@ -16,12 +16,14 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<jaxb.version>2.3.0</jaxb.version>
+        <mapstruct.version>1.2.0.Final</mapstruct.version>
 	</properties>
 
 	<modules>
 		<module>jaxb</module>
 		<module>json</module>
 		<module>lombok</module>
+		<module>mapStruct</module>
 	</modules>
 
 	<build>
