@@ -20,6 +20,7 @@
 
 	<modules>
 		<module>jaxb</module>
+		<module>json</module>
 	</modules>
 
 	<build>

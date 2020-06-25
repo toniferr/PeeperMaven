@@ -143,5 +143,6 @@ Desktop.ini
 .eslintcache
 
 ######################
-# Modulo JAXB
+# target de modulos
 jaxb/target
+json/target
