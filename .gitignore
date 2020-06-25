@@ -144,5 +144,6 @@ Desktop.ini
 
 ######################
 # target de modulos
+lombok/target
 jaxb/target
 json/target

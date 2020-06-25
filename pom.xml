@@ -21,6 +21,7 @@
 	<modules>
 		<module>jaxb</module>
 		<module>json</module>
+		<module>lombok</module>
 	</modules>
 
 	<build>
