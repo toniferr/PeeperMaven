@@ -1,4 +1,4 @@
-package testing;
+package com.toni;
 
 public class HelloWorld {
 
