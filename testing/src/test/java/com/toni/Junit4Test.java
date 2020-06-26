@@ -1,13 +1,13 @@
 package com.toni;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class HelloWorldTest {
+public class Junit4Test {
 
 	@Test
-	void getHello() {
+	public void getHello() {
 		HelloWorld helloWorld = new HelloWorld();
 		assertEquals("Hello World", helloWorld.getHello());
 	}
