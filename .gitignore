@@ -144,6 +144,10 @@ Desktop.ini
 
 ######################
 # target de modulos
+testing/target
+groovy/target
+kotlin/target
+scala/target
 mapStruct/target
 lombok/target
 jaxb/target

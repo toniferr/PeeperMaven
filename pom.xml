@@ -24,6 +24,7 @@
 		<module>json</module>
 		<module>lombok</module>
 		<module>mapStruct</module>
+		<module>testing</module>
 	</modules>
 
 	<build>
