@@ -3,24 +3,24 @@
   <parent>
     <groupId>com.toni</groupId>
     <artifactId>PeeperMaven</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
   </parent>
   <artifactId>web-app</artifactId>
       <dependencies>
         <dependency>
             <groupId>com.toni</groupId>
             <artifactId>lombok</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.toni</groupId>
             <artifactId>jaxb</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.toni</groupId>
             <artifactId>mapStruct</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
