@@ -26,10 +26,10 @@
 		<module>json</module>
 	</modules>
 
+	    <!-- 
 	<build>
 	    <plugins>
 	    
-	    <!-- 
 	      <plugin>
 	        <artifactId>maven-clean-plugin</artifactId>
 	        <version>3.1.0</version>
@@ -42,8 +42,7 @@
 	            </goals>
 	          </execution>
 	        </executions>
-	      </plugin>      
-	     -->
+	      </plugin>  
           <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-site-plugin</artifactId>
@@ -51,5 +50,36 @@
            </plugin>
             
 	    </plugins>
-	  </build>
+	  </build>    
+	     -->
+	      <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <configuration>
+                    <flattenMode>bom</flattenMode>
+                </configuration>
+                <executions>
+                    <!-- enable flattening -->
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <!-- ensure proper cleanup -->
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+	  
 </project>

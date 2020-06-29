@@ -71,6 +71,7 @@ local.properties
 /target/
 /wells-fargo-ach-service/target/**
 /wells-fargo-api-client/target/**
+.flattened-pom.xml
 
 ######################
 # Gradle
