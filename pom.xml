@@ -15,21 +15,20 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<jaxb.version>2.3.0</jaxb.version>
-        <mapstruct.version>1.2.0.Final</mapstruct.version>
 	</properties>
 
 	<modules>
-		<module>jaxb</module>
-		<module>json</module>
+		<module>web-app</module>
 		<module>lombok</module>
+		<module>jaxb</module>
 		<module>mapStruct</module>
-		<module>testing</module>
+		<module>json</module>
 	</modules>
 
 	<build>
 	    <plugins>
 	    
+	    <!-- 
 	      <plugin>
 	        <artifactId>maven-clean-plugin</artifactId>
 	        <version>3.1.0</version>
@@ -43,7 +42,7 @@
 	          </execution>
 	        </executions>
 	      </plugin>      
-	      	   
+	     -->
           <plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-site-plugin</artifactId>

@@ -3,8 +3,8 @@ package com.toni.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import com.toni.domain.User;
-import com.toni.model.UserCommand;
+import com.toni.domain.UserCommand;
+import com.toni.entities.User;
 
 @Mapper
 public interface UserMapper {

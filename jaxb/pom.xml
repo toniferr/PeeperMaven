@@ -11,7 +11,11 @@
   
   <artifactId>jaxb</artifactId>
   
-      <dependencies>
+    <properties>
+        <jaxb.version>2.3.0</jaxb.version>
+    </properties>
+
+    <dependencies>
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
@@ -26,36 +30,11 @@
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
             <version>${jaxb.version}</version>
-        </dependency>    
-        
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13</version>
-			<scope>test</scope>
-		</dependency>         
-      </dependencies>   
-      
-      <build>
-      
-	    <plugins>
-	      
-	      <plugin>
-		      <groupId>org.apache.maven.plugins</groupId>
-		      <artifactId>maven-jar-plugin</artifactId>
-		      <version>3.2.0</version>
-		      <configuration>
-		        <archive>
-		        	<manifest>
-		        		<addClasspath>true</addClasspath>
-		        		<mainClass>PeeperMavenMain</mainClass>
-		        	</manifest>
-		          <!-- <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>  -->
-		        </archive>
-		      </configuration>
-		   </plugin>	
-            
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
@@ -68,7 +47,6 @@
                     </execution>
                 </executions>
             </plugin>
-            
-      </plugins>
-	  </build>
+        </plugins>
+    </build>
 </project>

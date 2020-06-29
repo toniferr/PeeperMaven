@@ -11,20 +11,12 @@
         </xsd:appinfo>
     </xsd:annotation>
 
-    <xsd:complexType name="Product">
+    <xsd:complexType name="UserCommand">
         <xsd:sequence>
-            <xsd:element name="productId" type="xsd:integer"/>
-            <xsd:element name="productDescription" type="xsd:string"/>
-            <xsd:element name="productPrice" type="xsd:decimal"/>
+            <xsd:element name="firstName" type="xsd:string"/>
+            <xsd:element name="lastName" type="xsd:string"/>
+            <xsd:element name="email" type="xsd:string"/>
         </xsd:sequence>
-    </xsd:complexType>
-
-    <xsd:complexType name="CreateProductRequest">
-        <xsd:complexContent>
-            <xsd:extension base="Product">
-                <xsd:attribute name="apikey" type="xsd:string"/>
-            </xsd:extension>
-        </xsd:complexContent>
     </xsd:complexType>
 
 </xsd:schema>
