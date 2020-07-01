@@ -145,6 +145,7 @@ Desktop.ini
 
 ######################
 # target de modulos
+web-app/target
 testing/target
 groovy/target
 kotlin/target
