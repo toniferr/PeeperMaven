@@ -149,6 +149,7 @@
          
     </build>	
 	
+	<!-- 
 	<repositories>
         <repository>
             <id>nexus-snapshots</id>
@@ -198,7 +199,19 @@
             </distributionManagement>
         </profile>
     </profiles>   
-
+   -->
+   <distributionManagement>
+        <repository>
+            <id>packagecloud.releases</id>
+            <url>packagecloud+https://packagecloud.io/toni/release</url>
+        </repository>
+        <snapshotRepository>
+            <id>packagecloud.snapshots</id>
+            <url>packagecloud+https://packagecloud.io/toni/snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+            
+            
 	<modules>
 		<module>web-app</module>
 		<module>lombok</module>
