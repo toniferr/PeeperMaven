@@ -91,7 +91,16 @@
 	    </plugins>
 	  </build>    
 	     -->
-	      <build>
+	  <build>
+	  
+	    <extensions>
+	      <extension>
+	        <groupId>io.packagecloud.maven.wagon</groupId>
+	        <artifactId>maven-packagecloud-wagon</artifactId>
+	        <version>0.0.6</version>
+	      </extension>
+	    </extensions>
+	  
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -143,5 +152,16 @@
             
         </plugins>
     </build>
+    
+    <distributionManagement>
+	    <repository>
+	      <id>packagecloud.releases</id>
+	      <url>packagecloud+https://packagecloud.io/toni/release</url>
+	    </repository>
+	    <snapshotRepository>
+	      <id>packagecloud.snapshots</id>
+	      <url>packagecloud+https://packagecloud.io/toni/snapshot</url>
+	    </snapshotRepository>
+  </distributionManagement>
 	  
 </project>
