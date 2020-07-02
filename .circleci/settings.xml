@@ -5,11 +5,11 @@
 
     <servers>
         <server>
-            <id>packagecloud.release</id>
+            <id>packagecloud.releases</id>
             <password>${env.PCLOUD}</password>
         </server>
         <server>
-            <id>packagecloud.snapshot</id>
+            <id>packagecloud.snapshots</id>
             <password>${env.PCLOUD}</password>
         </server>
         <server>
