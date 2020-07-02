@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.toni</groupId>
     <artifactId>PeeperMaven</artifactId>
-    <version>${revision}</version>
+    <version>1.0</version>
   </parent>
   <artifactId>web-app</artifactId>
       <dependencies>
