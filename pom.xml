@@ -6,10 +6,17 @@
 	<version>1.1-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
+                        
+	<modules>
+		<module>web-app</module>
+		<module>lombok</module>
+		<module>jaxb</module>
+		<module>mapStruct</module>
+	</modules>
 
 	<properties>
         <!-- <revision>1.0</revision>  para nexus release -->
-        <revision>1.1-SNAPSHOT</revision>
+        <!-- <revision>1.1-SNAPSHOT</revision> -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
@@ -92,19 +99,7 @@
 			   <artifactId>maven-site-plugin</artifactId>
 			   <version>3.7.1</version>
 			</plugin>  
-			
-			-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-
-                    <scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
-
-                </configuration>
-            </plugin>
-            
+            -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
@@ -149,6 +144,17 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+
+                    <scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
+
+                </configuration>
             </plugin>
          </plugins>
          
@@ -207,22 +213,13 @@
    -->
     <distributionManagement>
         <repository>
-            <id>packagecloud.release</id>
+            <id>packagecloud.releases</id>
             <url>packagecloud+https://packagecloud.io/toni/release</url>
         </repository>
         <snapshotRepository>
-            <id>packagecloud.snapshot</id>
+            <id>packagecloud.snapshots</id>
             <url>packagecloud+https://packagecloud.io/toni/snapshot</url>
         </snapshotRepository>
     </distributionManagement>
-            
-            
-	<modules>
-		<module>web-app</module>
-		<module>lombok</module>
-		<module>jaxb</module>
-		<module>mapStruct</module>
-	</modules>
-
 
 </project>
